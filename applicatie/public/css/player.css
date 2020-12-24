@@ -1,0 +1,24 @@
+span {
+  transform: scale(2);
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 99999 !important;
+}
+a {
+  text-decoration: none;
+  color: var(--white);
+}
+video {
+  width: 100vw;
+  transform: scale(1.05);
+  height: 100vh;
+}
+span:not(:hover) {
+  opacity: 0.3;
+}
+body {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}

@@ -1,0 +1,46 @@
+label {
+  display: block;
+  margin: 14px 0px;
+}
+
+input, select {
+  width: 90%;
+  padding: 12px 10px;
+  border: 1px solid var(--gray);
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+input[type="submit"] {
+  width: auto;
+  padding: auto 30px;
+  background-color: var(--blue);
+  color: white;
+  float: right;
+}
+
+.btn-submit {
+  position: relative;
+  clear: both;
+  float: left;
+  width: 20%;
+  left: 2%;
+  padding: 10px;
+  background: #2196f3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background: #0b7dda;
+}
+
+.subscribe::after {
+  content: "";
+  clear: both;
+  display: table;
+}

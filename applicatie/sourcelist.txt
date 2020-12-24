@@ -1,0 +1,9 @@
+Timeline:
+https://www.w3schools.com/howto/howto_css_timeline.asp
+
+Modal:
+https://www.w3schools.com/howto/howto_css_modals.asp
+
+Flex:
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+

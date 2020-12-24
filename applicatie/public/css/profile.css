@@ -1,0 +1,116 @@
+.container {
+  min-height: 100vh;
+  margin-top: 7%;
+  color: black;
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+nav ul {
+  top: 0;
+}
+table {
+  min-width: 100%;
+}
+hr {
+  border: 2px solid var(--dark);
+  border-top: none;
+}
+
+.btn-submit {
+  position: relative;
+  clear: both;
+  float: right;
+  width: 20%;
+  padding: 10px;
+  background: #2196f3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+.table-profile td {
+  display: flex;
+  margin: 0;
+}
+.table-profile td p {
+  padding-left: 15px;
+}
+table tr td img {
+  width: 50px;
+  height: 50px;
+}
+.container h2 {
+  position: relative;
+  left: 5%;
+}
+.tr-first {
+  width: 20%;
+  float: left;
+  font-size: 150%;
+}
+.tr-second {
+  width: 50%;
+  text-align: start;
+  display: grid;
+  float: left;
+}
+
+.tr-third {
+  width: 30%;
+  display: grid;
+  text-align: end;
+}
+.correction {
+  padding-bottom: 20px;
+}
+.container tr td {
+  padding-top: 20px;
+}
+.tr-third tr td a {
+  padding-top: 20px;
+}
+.tr-second td strong {
+  align-self: start;
+}
+footer {
+  position: absolute;
+  top: 120%;
+}
+@media only screen and (max-width: 800px) {
+  .btn-submit {
+    transform: scale(0.8);
+    font-size: 80%;
+  }
+  .tr-first {
+    font-size: 100%;
+  }
+  .tr-third {
+    font-size: 85%;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .btn-submit {
+    transform: scale(0.7);
+    font-size: 70%;
+  }
+  .tr-first {
+    font-size: 70%;
+  }
+  .tr-second td {
+    font-size: 75%;
+  }
+  .tr-third {
+    font-size: 65%;
+  }
+}
+@media only screen and (max-width: 440px) {
+  .tr-second td {
+    font-size: 60%;
+  }
+  .tr-third {
+    font-size: 50%;
+  }
+}
