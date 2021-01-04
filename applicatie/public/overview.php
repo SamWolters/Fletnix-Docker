@@ -6,6 +6,12 @@
   $conn = $db->connect();
 
   $movies = new Movies($conn);
+
+  session_start();
+            
+  $_SESSION = array();
+  
+  session_destroy();
 ?>
 
 
@@ -131,7 +137,8 @@
             </div>
           </div>
         </div>
-        <div id="modal-signIn" class="modal">
+        <?php require_once 'loginmodal.php' ?>
+        <!-- <div id="modal-signIn" class="modal">
           <div class="modal-inner" style="max-width: 500px">
             <div class="modal-header">
               <section class="flex centered">
@@ -167,7 +174,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </main>
   </body>
