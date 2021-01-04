@@ -31,7 +31,7 @@ hr {
   border-left: none;
   cursor: pointer;
 }
-.table-profile td {
+.table-profile td{
   display: flex;
   margin: 0;
 }
@@ -63,10 +63,23 @@ table tr td img {
   display: grid;
   text-align: end;
 }
+input{
+  border: none;
+  background-color: var(--white);
+}
+.small-input{
+  width: 10%;
+}
+.medium-input{
+  width: 20%;
+}
+.large-input{
+  width: 33%;
+}
 .correction {
   padding-bottom: 20px;
 }
-.container tr td {
+.container tr td{
   padding-top: 20px;
 }
 .tr-third tr td a {

@@ -2,9 +2,9 @@
 
     function connect_db() {
         $host = "localhost";
-        $username = "fletnix_admin";
-        $password = "admin!123";
-        $database = "FLETNIX_DOCENT";
+        $username = "sa";
+        $password = "SuperSterkWacht2WoordVoorConnectie1";
+        $database = "Applicatie";
 
         $dbh = new PDO("sqlsrv:Server=$host;Database=$database;ConnectionPooling=0", "$username", "$password");
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

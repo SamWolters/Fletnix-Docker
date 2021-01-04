@@ -5,7 +5,7 @@ function modaloptions($option){
         case 0:
             $subscription = [
              "title" => "Basic",
-             "Price" => "4.99",
+             "Price" => "4.00",
              "Quality" => "Good",
              "Resolution" => "1080p",
              "Users" => "1"
@@ -13,8 +13,8 @@ function modaloptions($option){
             break;
             case 1:
             $subscription = [
-             "title" => "Normal",
-             "Price" => "9.99",
+             "title" => "Premium",
+             "Price" => "5.00",
              "Quality" => "Better",
              "Resolution" => "4K",
              "Users" => "2"
@@ -22,8 +22,8 @@ function modaloptions($option){
             break;
             case 2:
             $subscription = [
-             "title" => "Premium",
-             "Price" => "14.99",
+             "title" => "Pro",
+             "Price" => "6.00",
              "Quality" => "Best",
              "Resolution" => "8K HDR",
              "Users" => "5"

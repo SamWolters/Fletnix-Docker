@@ -18,7 +18,7 @@
             <div class="modal-body">
                 <div class="flex flex-center">
                     <section class="col-5 col-md-5 col-sm-5">
-                        <form action="profile.html">
+                        <form action="../../pages/profile.php">
                             <label>
                                 Email:
                                 <input type="email" />
