@@ -2,10 +2,12 @@
   require_once('../functions/dbFunctions.php');
   require_once('../functions/registerfunctions.php');
 
-  $db = new Database('host.docker.internal', 'sa', 'SuperSterkWacht2WoordVoorConnectie1', 'Applicatie');
+  $db = new Database('host.docker.internal', 'fletnix_admin', 'welkom', 'FLETNIX_DOCENT');
   $conn = $db->connect();
 
   $User = new UserProfile($conn);
+
+  session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,10 +26,9 @@
 
   <body>
     <nav>
-      <?php include '../include/navigation.php' ?>
     </nav>
     <section>
-    <?php foreach ($User ->GetUserProfile() as $User) { ?>
+    <?php foreach ($User ->GetUserProfile('16700510 4737') as $User) { ?>
       <div class="container">
         <h2>Account</h2>
         <hr />

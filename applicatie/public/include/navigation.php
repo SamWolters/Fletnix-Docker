@@ -12,6 +12,6 @@
         <a class="navigation-link" href="../pages/about.php">About us</a>
     </li>
     <li>
-        <a class="btn btn-red" href="../pages/login.php">About us</a>
+        <a class="btn btn-red" href="../pages/login.php">Login</a>
     </li>
 </ul>

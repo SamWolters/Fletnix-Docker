@@ -23,7 +23,8 @@
         $result = $command->fetchAll();
     
         if ($result[0] != null) {
-            if ($password === isset($result[0]['password'])) {
+            if ($password == isset($result[0]['password'])) {
+                print("yeah");
                 session_start();
     
                 $_SESSION["loggedIn"] = true;
@@ -36,14 +37,14 @@
                     $_SESSION["validSubscription"] = false;
                 }
     
-                header("location: ../overview.php");
+                header("location: ../pages/overview.php");
                 print_r($result[0]);
             } else {
-                header("location: ../login.php?error=password");
+                header("location: ../pages/login.php?error=password");
             }
     
         } else {
-            header("location: ../login.php?error=email");
+            header("location: ../pages/login.php?error=email");
         }
     }
 ?>
