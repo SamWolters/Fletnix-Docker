@@ -11,10 +11,7 @@
     <li>
         <a class="navigation-link" href="../pages/about.php">About us</a>
     </li>
-    <li id="btnSignIn">
-        <button class="btn btn-red">Login</button>
-    </li>
-    <li class="icon">
-        <i class="fa fa-bars"></i>
+    <li>
+        <a class="btn btn-red" href="../pages/login.php">About us</a>
     </li>
 </ul>
