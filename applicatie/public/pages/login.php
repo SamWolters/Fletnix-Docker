@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="card card-white" style="margin-top: 50px">
-                    <form method="post" action="functions/authLogin.php">
+                    <form method="post" action="../functions/authLogin.php">
                         <label>
                             Email:
                             <input type="email" name="mail_address" required />

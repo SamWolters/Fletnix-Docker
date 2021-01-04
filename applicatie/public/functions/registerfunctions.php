@@ -15,10 +15,10 @@
             return $result;
         }
 
-        function GetUserProfile(){ 
-            $command = $this->dbContext->query("SELECT [customer_mail_address] as Cmail, [subscription_end] as Csub_end, RIGHT(payment_card_number, 4) as Ccard, [user_name] as Cname, [password] as Cpass, [contract_type] as Ctype FROM Customer WHERE User_Name = ?");
+        function GetUserProfile($id){ 
+            $command = $this->dbContext->query("SELECT [customer_mail_address] as Cmail, [subscription_end] as Csub_end, RIGHT(payment_card_number, 4) as Ccard, [user_name] as Cname, [password] as Cpass, [contract_type] as Ctype FROM Customer WHERE User_Name = :userId");
             $query = $dbh->prepare($command);
-            $query->execute(array(':user' => $userinfo));
+            $query->execute(array(':userId' => $id));
             
             $result = $query->fetchAll();
             return $result;   
