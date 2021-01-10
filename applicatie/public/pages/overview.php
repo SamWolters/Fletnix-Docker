@@ -7,6 +7,12 @@
 
   $movies = new Movies($conn);
 
+  $moviesData = $movies->getAll();
+
+  if (isset($_GET['filter']) && $_GET['filter']) {
+    $moviesData = $movies->getAllByFilter($_GET['filter']);
+  }
+
   session_start();
 ?>
 
