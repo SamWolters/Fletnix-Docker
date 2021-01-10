@@ -36,9 +36,13 @@
 }
 
 .card-media > img {
-    max-width: 100%;
+    max-width: 90%;
     max-height: 100%;
     margin-bottom: -5px;
+    border-radius: 8px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card-hover:hover {

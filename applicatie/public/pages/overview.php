@@ -79,15 +79,26 @@ if (!isset($_SESSION)) { session_start(); }
         <div class="flex">
           <?php foreach ($movies->getAll() as $movie) { ?>
             <div class="col-1 col-md-2 col-sm-3">
-              <div class="card card-white card-media no-padding" id="Black_Panther" >
+              <a href="movie.php?id=<?=$movie['movie_id'] ?>" class="card card-media">
                 <img src="../assets/movie-poster.jpg" alt="" />
-              </div>
+              </a>
               <div class="text-center">
-                <h3 class="mt-1"><?php echo $movie['title'] ?></h3>
+                <h3 class="mt-1"><?=$movie['title'] ?></h3>
               </div>
             </div>
           <?php } ?>
-        </div>
+        </div> 
+
+        <!-- <div class="flex">
+            <div class="col-1 col-md-2 col-sm-3">
+              <a href="www.google.com" class="" >
+                <img src="../assets/movie-poster.jpg" alt="" />
+              </a>
+              <div class="text-center">
+                <h3 class="mt-1">The matrix</h3>
+              </div>
+            </div>
+        </div> -->
         
         <div id="modal-film" class="modal">
           <div class="modal-inner">
