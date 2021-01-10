@@ -8,10 +8,6 @@
   $movies = new Movies($conn);
 
   session_start();
-            
-  $_SESSION = array();
-  
-  session_destroy();
 ?>
 
 
@@ -84,15 +80,26 @@
         <div class="flex">
           <?php foreach ($movies->getAll() as $movie) { ?>
             <div class="col-1 col-md-2 col-sm-3">
-              <div class="card card-white card-media no-padding" id="Black_Panther" >
+              <a href="movie.php?id=<?=$movie['movie_id'] ?>" class="card card-media">
                 <img src="../assets/movie-poster.jpg" alt="" />
-              </div>
+              </a>
               <div class="text-center">
-                <h3 class="mt-1"><?php echo $movie['title'] ?></h3>
+                <h3 class="mt-1"><?=$movie['title'] ?></h3>
               </div>
             </div>
           <?php } ?>
-        </div>
+        </div> 
+
+        <!-- <div class="flex">
+            <div class="col-1 col-md-2 col-sm-3">
+              <a href="www.google.com" class="" >
+                <img src="../assets/movie-poster.jpg" alt="" />
+              </a>
+              <div class="text-center">
+                <h3 class="mt-1">The matrix</h3>
+              </div>
+            </div>
+        </div> -->
         
         <div id="modal-film" class="modal">
           <div class="modal-inner">
@@ -137,44 +144,6 @@
             </div>
           </div>
         </div>
-        <?php require_once '../loginmodal.php' ?>
-        <!-- <div id="modal-signIn" class="modal">
-          <div class="modal-inner" style="max-width: 500px">
-            <div class="modal-header">
-              <section class="flex centered">
-                <div class="col-4 col-md-4 col-sm-4">
-                  <h2>Login</h2>
-                </div>
-                <div class="col-2">
-                  <div class="text-right">
-                    <button id="btnClose" class="btn btn-red btn-icon">
-                      &times;
-                    </button>
-                  </div>
-                </div>
-              </section>
-              <hr />
-            </div>
-            <div class="modal-body">
-              <div class="flex flex-center">
-                <div class="col-5 col-md-5 col-sm-5">
-                  <form action="profile.html">
-                    <label>
-                      Email:
-                      <input type="email" />
-                    </label>
-
-                    <label>
-                      Password:
-                      <input type="password" />
-                    </label>
-                    <input type="submit" value="Sign in" />
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
       </div>
     </main>
   </body>
