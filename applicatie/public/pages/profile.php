@@ -1,19 +1,19 @@
 <?php
+if (!isset($_SESSION)) { session_start(); }
   require_once('../functions/dbFunctions.php');
   require_once('../functions/registerfunctions.php');
 
-  $db = new Database('host.docker.internal', 'fletnix_admin', 'welkom', 'FLETNIX_DOCENT');
+  $db = new Database('host.docker.internal',"sa", "SuperSterkWacht2WoordVoorConnectie1",'Applicatie');
   $conn = $db->connect();
 
-  $User = new UserProfile($conn);
-
-  session_start();
+  $Users = new UserProfile($conn);
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript" src="../js/profile.js"></script>
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/navigation.css" />
     <link rel="stylesheet" href="../css/profile.css" />
@@ -25,11 +25,13 @@
   </head>
 
   <body>
-    <nav>
-    </nav>
+  <nav><?php include '../include/navigation.php'?></nav>
     <section>
-    <?php foreach ($User ->GetUserProfile('16700510 4737') as $User) { ?>
-      <div class="container">
+    <?php 
+    
+    foreach ($Users ->GetUserProfile($_SESSION["userId"]) as $User) { ?>
+    <form action="../functions/updateUser.php" method="post">
+    <div class="container">
         <h2>Account</h2>
         <hr />
         <table>
@@ -38,24 +40,22 @@
           </tr>
           <tr class="tr-second">
             <td>
-            Username: <strong><input class="medium-input" type="text" readonly value="<?=$User['Cname']?>"/></strong>
+            Username: <strong><input name="nameuser" class="medium-input" readonly="readonly" type="text"  value="<?=$User['Cname']?>"/></strong>
             </td>
-            <td>Password: <input class="medium-input" type="password" readonly value="<?php echo $star = str_repeat("*", strlen($User['Cpass']) + rand(3,33));?>"></td>
-            <td>Email: <input class="large-input" type="text" readonly value="<?=$User['Cmail']?>"/></td>
-             <td>The subscription ends on: <input class="medium-input" type="text" readonly value="<?php echo empty($User['Csub_end'])? 'No date set' : $User['Csub_end']; ?>"/></td>
-            <td>Card: •••• •••• •••• <input type="text" class="small-input" readonly value="<?=$User['Ccard']?>"/></td>
+            <td>Password: <input name="passcode" class="large-input" readonly="readonly" type="password"  value="<?=$User['Cpass']?>"></td>
+            <td>Email: <input name="mailing" class="large-input" readonly="readonly" type="text"  value="<?=$User['Cmail']?>"/></td>
+             <td>The subscription ends on: <input name="end_sub" class="merdium-input" readonly="readonly" type="date"  value="<?php echo empty($User['Csub_end'])? '00-00-0000' :$User['Csub_end']; ?>"/></td>
+            <td>Card: •••• •••• •••• <?=$User['Ccard']?></td>
           </tr>
           <tr class="tr-third">
-            <td class="correction">
-              <a href="#"></a>
-            </td>
-            <td><a href="#">Change password</a></td>
+            <td>
+              <a href="#" name="nameuser" onclick="toggle('nameuser')"> Change Username</a></td>
 
-            <td><a href="#">Change Email</a></td>
+            <td><a href="#" name="passcode" onclick="toggle('passcode')">Change password</a></td>
 
-            <td><a href="#">cancel subscription plan</a></td>
+            <td><a href="#" name="mailing" onclick="toggle('mailing')">Change Email</a></td>
 
-            <td><a href="#">Edit card information</a></td>
+            <td><a href="#" name="end_sub" onclick="toggle('end_sub')">cancel subscription plan</a></td>
           </tr>
         </table>
         <hr />
@@ -64,10 +64,23 @@
             <td>Plan Detail</td>
           </tr>
           <tr class="tr-second">
-            <td><strong> <?=$User['Ctype']?> </strong></td>
+            <td>
+
+            <select name="current_sub" class="medium-input" readonly="readonly" disabled>
+              <?php
+              $plans = new UserProfile($conn);
+              foreach ($plans ->GetPlans() as $Plan) { 
+                if($Plan['Plans'] == $User['Ctype']){
+                  echo "<option selected>{$User['Ctype']}</option>";
+                }else
+               echo "<option>{$Plan['Plans']}</option>";
+               } ?>
+            </select>
+
+            </td>
           </tr>
           <tr class="tr-third">
-            <td><a href="#">Change subscription</a></td>
+            <td><a href="#" name="current_sub" onclick="toggle('current_sub')">Change subscription</a></td>
           </tr>
         </table>
         <hr />
@@ -91,12 +104,10 @@
           </tr>
         </table>
         <hr />
-        <input class="btn-submit" type="submit" value="Save Changes" />
+        <input class="btn-submit" type="submit" name="save" value="Save Changes" />
+        </form>
         <?php }?>
       </div>
     </section>
-    <footer>
-      <div class="text-center medium pt-3 pb-1">Fletnix &copy; 2020</div>
-    </footer>
   </body>
 </html>
