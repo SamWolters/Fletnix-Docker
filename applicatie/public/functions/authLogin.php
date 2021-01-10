@@ -1,7 +1,7 @@
 <?php 
     require_once('dbFunctions.php');
 
-    $db = new Database('host.docker.internal', 'fletnix_admin', 'welkom', 'FLETNIX_DOCENT');
+    $db = new Database('host.docker.internal',"sa", "SuperSterkWacht2WoordVoorConnectie1",'Applicatie');
     $conn = $db->connect();
 
     $username = "";
@@ -24,7 +24,6 @@
     
         if ($result[0] != null) {
             if ($password == isset($result[0]['password'])) {
-                print("yeah");
                 session_start();
     
                 $_SESSION["loggedIn"] = true;
@@ -36,9 +35,7 @@
                 } else {
                     $_SESSION["validSubscription"] = false;
                 }
-    
                 header("location: ../pages/overview.php");
-                print_r($result[0]);
             } else {
                 header("location: ../pages/login.php?error=password");
             }
@@ -46,5 +43,8 @@
         } else {
             header("location: ../pages/login.php?error=email");
         }
+        
+
+   
     }
 ?>

@@ -1,4 +1,5 @@
 <?php
+if (!isset($_SESSION)) { session_start(); }
   $error = isset($_GET['error'])
 ?>
 <!DOCTYPE html>

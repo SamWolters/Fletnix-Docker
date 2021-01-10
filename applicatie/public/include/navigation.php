@@ -1,3 +1,4 @@
+<?php if (!isset($_SESSION)) { session_start(); } ?>
 <ul>
     <li>
         <a class="navigation-logo" href="../index.php">Fletnix</a>
@@ -12,6 +13,15 @@
         <a class="navigation-link" href="../pages/about.php">About us</a>
     </li>
     <li>
-        <a class="btn btn-red" href="../pages/login.php">Login</a>
+    <?php
+    if (isset($_SESSION['loggedIn'])) {
+        $console = 'true';
+        echo "<a class='btn btn-red' href='../pages/profile.php'>Profile</a>";
+    } else {
+        $console = 'false';
+        echo "<a class='btn btn-red' href='../pages/login.php'>Login</a>";
+    }
+    
+    ?>
     </li>
 </ul>
