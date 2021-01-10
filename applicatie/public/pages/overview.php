@@ -1,20 +1,20 @@
 <?php
-if (!isset($_SESSION)) { session_start(); }
+  if (!isset($_SESSION)) { session_start(); }
+
+
   require_once('../functions/dbFunctions.php');
   require_once('../functions/movieFunctions.php');
 
-  $db = new Database('host.docker.internal',"sa", "SuperSterkWacht2WoordVoorConnectie1",'Applicatie');
+  $db = new Database('host.docker.internal',"fletnix_admin", "welkom",'FLETNIX_DOCENT');
   $conn = $db->connect();
 
   $movies = new Movies($conn);
 
   $moviesData = $movies->getAll();
 
-  if (isset($_GET['filter']) && $_GET['filter']) {
-    $moviesData = $movies->getAllByFilter($_GET['filter']);
+  if (isset($_GET['title'])) {
+    $moviesData = $movies->getAllByFilter($_GET['title'], $_GET['year'], $_GET['person'], $_GET['genre']);
   }
-
-  session_start();
 ?>
 
 
@@ -76,16 +76,37 @@ if (!isset($_SESSION)) { session_start(); }
       </div>
     </header>
     <main class="container" style="margin-top: 75px">
-      <div class="flex">
+      <form method="get" class="flex">
         <div class="col-1">
           <label>
-            Search
-            <input type="text" placeholder="Search for movie or serie" />
+            Title
+            <input name="title" type="text" placeholder="Search for movie or serie" />
           </label>
         </div>
-
+        <div class="col-1">
+          <label>
+            Year
+            <input name="year" type="text" placeholder="Search for movie or serie" />
+          </label>
+        </div>
+        <div class="col-1">
+          <label>
+            Director
+            <input name="person" type="text" placeholder="Search for movie or serie" />
+          </label>
+        </div>
+        <div class="col-1">
+          <label>
+            Genre
+            <input name="genre" type="text" placeholder="Search for movie or serie" />
+          </label>
+        </div>  
+        <div class="col-1">            
+            <input type="submit" placeholder="Search for movie or serie" />
+        </div> 
+      </form>
         <div class="flex">
-          <?php foreach ($movies->getAll() as $movie) { ?>
+          <?php foreach ($moviesData as $movie) { ?>
             <div class="col-1 col-md-2 col-sm-3">
               <a href="movie.php?id=<?=$movie['movie_id'] ?>" class="card card-media">
                 <img src="../assets/movie-poster.jpg" alt="" />
@@ -151,7 +172,6 @@ if (!isset($_SESSION)) { session_start(); }
             </div>
           </div>
         </div>
-      </div>
     </main>
   </body>
 </html>

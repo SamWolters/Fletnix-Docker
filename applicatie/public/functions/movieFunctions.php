@@ -14,7 +14,7 @@
             return $result;
         }
 
-        public function getAllByFilter($title, $year, $peron, $genre) {
+        public function getAllByFilter($title, $year, $person, $genre) {
             $command = $this->dbContext->prepare('SELECT TOP 120 m.movie_id, m.title FROM Movie m
                                                     INNER JOIN Movie_Genre mg on m.movie_id = mg.movie_id
                                                     INNER JOIN Genre g on mg.genre_name = g.genre_name
