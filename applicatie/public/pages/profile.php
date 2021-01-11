@@ -44,18 +44,18 @@ if (!isset($_SESSION)) { session_start(); }
             </td>
             <td>Password: <input name="passcode" class="large-input" readonly="readonly" type="password"  value="<?=$User['Cpass']?>"></td>
             <td>Email: <input name="mailing" class="large-input" readonly="readonly" type="text"  value="<?=$User['Cmail']?>"/></td>
-             <td>The subscription ends on: <input name="end_sub" class="merdium-input" readonly="readonly" type="date"  value="<?php echo empty($User['Csub_end'])? '00-00-0000' :$User['Csub_end']; ?>"/></td>
+             <td>The subscription ends on: <input name="end_sub" class="merdium-input" readonly="readonly" type="text"  value="<?php echo empty($User['Csub_end'])? 'No Date set' :$User['Csub_end']; ?>"/></td>
             <td>Card: •••• •••• •••• <?=$User['Ccard']?></td>
           </tr>
           <tr class="tr-third">
-            <td>
-              <a href="#" name="nameuser" onclick="toggle('nameuser')"> Change Username</a></td>
+            <td class="correction"> <a href=""></a> </td>
+             
 
             <td><a href="#" name="passcode" onclick="toggle('passcode')">Change password</a></td>
 
             <td><a href="#" name="mailing" onclick="toggle('mailing')">Change Email</a></td>
 
-            <td><a href="#" name="end_sub" onclick="toggle('end_sub')">cancel subscription plan</a></td>
+            <td class="correction"> <a href=""></a> </td>
           </tr>
         </table>
         <hr />
@@ -65,22 +65,11 @@ if (!isset($_SESSION)) { session_start(); }
           </tr>
           <tr class="tr-second">
             <td>
-
-            <select name="current_sub" class="medium-input" readonly="readonly" disabled>
-              <?php
-              $plans = new UserProfile($conn);
-              foreach ($plans ->GetPlans() as $Plan) { 
-                if($Plan['Plans'] == $User['Ctype']){
-                  echo "<option selected>{$User['Ctype']}</option>";
-                }else
-               echo "<option>{$Plan['Plans']}</option>";
-               } ?>
-            </select>
-
+                  <input type="text" readonly="readonly" style="font-weight:bold;" value="<?=$User['Ctype']?>">
             </td>
           </tr>
           <tr class="tr-third">
-            <td><a href="#" name="current_sub" onclick="toggle('current_sub')">Change subscription</a></td>
+          <td class="correction"> <a href=""></a> </td>
           </tr>
         </table>
         <hr />

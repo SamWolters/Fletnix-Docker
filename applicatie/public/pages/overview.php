@@ -5,7 +5,7 @@
   require_once('../functions/dbFunctions.php');
   require_once('../functions/movieFunctions.php');
 
-  $db = new Database('host.docker.internal',"fletnix_admin", "welkom",'FLETNIX_DOCENT');
+  $db = new Database('host.docker.internal',"sa", "SuperSterkWacht2WoordVoorConnectie1",'Applicatie');
   $conn = $db->connect();
 
   $movies = new Movies($conn);

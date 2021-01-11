@@ -13,22 +13,12 @@ var toggle = function (name) {
     toggleEdit(name, check, clickedEllement, clickedbutton, value);
 }
 
-
-
-
-
 function toggleEdit(obj, att, element, button, value) {
     if (att == "readonly") {
         button.innerHTML = "Done Editing";
         switch (obj) {
             case "mailing":
                 element.setAttribute("type", "email");
-                break;
-            case "end_sub":
-                element.setAttribute("type", "date");
-                break;
-            case "current_sub":
-                element.removeAttribute("disabled");
                 break;
             default:
                 element.setAttribute("type", "text");
@@ -43,9 +33,6 @@ function toggleEdit(obj, att, element, button, value) {
         button.innerHTML = store;
         if (obj == "passcode") {
             element.setAttribute("type", "password");
-        }
-        if (obj == "current_sub") {
-            element.setAttribute("disabled", "disabled");
         }
 
     }
