@@ -15,7 +15,7 @@
     $dbh = connect_db();
       
    $command = $dbh->prepare( "INSERT INTO Customer
-    VALUES (?,?,?,?,?,?,?, null, ?, ?, ?, ?, ?)");
+    VALUES (?,?,?,?,?,?,?, null, ?, ?, ?, null, null)");
    execute_query($command);  
     function execute_query($query)
     {
@@ -31,7 +31,7 @@
       $Password = $_POST['password'];
       $Country = $_POST['country'];
       
-      $query->execute(array($Email, $Firstname, $Lastname, $PaymentMethod, $PaymentCard, $Contract, $Contract_start, $Username, $Password, $Country, null, null));
+      $query->execute(array($Email, $Firstname, $Lastname, $PaymentMethod, $PaymentCard, $Contract, $Contract_start, $Username, $Password, $Country));
       
       echo "<script>alert('Changes has been saved')</script>";
       header("refresh:2; url=../pages/subscription.php");

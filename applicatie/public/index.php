@@ -53,7 +53,6 @@
             ?>
         </div>
     </main>
-    <?php include 'include/loginmodal.php' ?>
     <?php include 'include/footer.php' ?>
 </body>
 

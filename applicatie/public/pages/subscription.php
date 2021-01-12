@@ -49,8 +49,5 @@
         </div>
     </main>
     <?php include '../include/submodal.php' ?>
-    <?php include '../include/loginmodal.php' ?>
-
 </body>
-
 </html>
