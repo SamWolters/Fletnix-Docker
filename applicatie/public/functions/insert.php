@@ -11,31 +11,32 @@
   
       return $dbh;
     }
-  
     
-
-    $Email = $_POST['email'];
-    $Lastname = $_POST['lastname'];
-    $Firstname = $_POST['firstname'];
-    $PaymentMethod = $_POST['payment'];
-    $PaymentCard = $_POST['card_number'];
-    $Contract = $_POST['subscription_type'];
-    $Contract_start = $_POST['subscription_start'];
-    $Username = $_POST['username'];
-    $Password = $_POST['password'];
-    $Country = $_POST['country'];
-
-
-    $command = "INSERT INTO Customer ([customer_mail_address], [lastname], [firstname], [payment_method], [payment_card_number], [contract_type], [subscription_start], [user_name], [password], [country_name])
-    VALUES ('$Email','$Lastname','$Firstname','$PaymentMethod','$PaymentCard','$Contract','$Contract_start', '$Username', '$Password', '$Country')";
-    execute_query($command);  
-    
+    $dbh = connect_db();
+      
+   $command = $dbh->prepare( "INSERT INTO Customer
+    VALUES (?,?,?,?,?,?,?, null, ?, ?, ?, ?, ?)");
+   execute_query($command);  
     function execute_query($query)
     {
       $dbh = connect_db();
-  
-      $result = $dbh->query($query);
+      $Email = $_POST['email'];
+      $Lastname = $_POST['lastname'];
+      $Firstname = $_POST['firstname'];
+      $PaymentMethod = $_POST['payment'];
+      $PaymentCard = $_POST['card_number'];
+      $Contract = $_POST['subscription_type'];
+      $Contract_start = $_POST['subscription_start'];
+      $Username = $_POST['username'];
+      $Password = $_POST['password'];
+      $Country = $_POST['country'];
       
-    header("refresh:2; url=../pages/subscription.php");
+      $query->execute(array($Email, $Firstname, $Lastname, $PaymentMethod, $PaymentCard, $Contract, $Contract_start, $Username, $Password, $Country, null, null));
+      
+      echo "<script>alert('Changes has been saved')</script>";
+      header("refresh:2; url=../pages/subscription.php");
     }
+  
+    
+    // }
 ?>
