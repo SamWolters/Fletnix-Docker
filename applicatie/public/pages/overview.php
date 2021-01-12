@@ -5,7 +5,7 @@
   require_once('../functions/dbFunctions.php');
   require_once('../functions/movieFunctions.php');
 
-  $db = new Database('host.docker.internal',"sa", "SuperSterkWacht2WoordVoorConnectie1",'Applicatie');
+  $db = new Database('host.docker.internal',"fletnix_admin", "welkom", 'FLETNIX_DOCENT');
   $conn = $db->connect();
 
   $movies = new Movies($conn);
@@ -109,7 +109,7 @@
           <?php foreach ($moviesData as $movie) { ?>
             <div class="col-1 col-md-2 col-sm-3">
               <a href="movie.php?id=<?=$movie['movie_id'] ?>" class="card card-media">
-                <img src="../assets/movie-poster.jpg" alt="" />
+                <img src="../assets/Posters/movie-poster.jpg" alt="" />
               </a>
               <div class="text-center">
                 <h3 class="mt-1"><?=$movie['title'] ?></h3>
@@ -117,61 +117,6 @@
             </div>
           <?php } ?>
         </div> 
-
-        <!-- <div class="flex">
-            <div class="col-1 col-md-2 col-sm-3">
-              <a href="www.google.com" class="" >
-                <img src="../assets/movie-poster.jpg" alt="" />
-              </a>
-              <div class="text-center">
-                <h3 class="mt-1">The matrix</h3>
-              </div>
-            </div>
-        </div> -->
-        
-        <div id="modal-film" class="modal">
-          <div class="modal-inner">
-            <div class="modal-header">
-              <div class="flex centered">
-                <div class="col-4">
-                  <h2>The Black Panther</h2>
-                </div>
-                <div class="col-2">
-                  <div class="text-right">
-                    <button id="btnCloseMovie">&times;</button>
-                  </div>
-                </div>
-              </div>
-              <hr />
-            </div>
-            <div class="flex">
-              <div class="modal-overlay">
-                <img
-                  src="assets/Black_Panther.jpg"
-                  alt=""
-                  style="width: 100%"
-                />
-                <a class="btn btn-red" href="html/player.html">Play</a>
-              </div>
-              <div class="col-3" style="display: contents">
-                <p>
-                  Thousands of years ago, five African tribes war over a
-                  meteorite containing the metal vibranium. One warrior ingests
-                  a "heart-shaped herb" affected by the metal and gains
-                  superhuman abilities, becoming the first "Black Panther". He
-                  unites all but the Jabari Tribe to form the nation of Wakanda.
-                </p>
-                <div>
-                  <p>Directed by: Ryan Coogler, Wesley Snipes</p>
-                  <p>
-                    cast: Lupita Nyong'o, Michael B. Jordan, Danai Gurira, and
-                    Chadwick Boseman
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
     </main>
   </body>
 </html>
