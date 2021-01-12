@@ -49,5 +49,4 @@
     <?php include '../components/modal-subscription.php' ?>
     <?php include '../components/footer.php' ?>
 </body>
-
 </html>

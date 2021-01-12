@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/navigation.css" />
     <link rel="stylesheet" href="../css/buttons.css" />
     <link rel="stylesheet" href="../css/grid.css" />
     <link rel="stylesheet" href="../css/cards.css" />
@@ -28,7 +29,7 @@
         <div class="flex flex-center">
             <div class="col-2 col-md-3 col-sm-5">
                 <div class="text-center">
-                    <span class="logo">Fletnix</span>
+                   <a class="navigation-logo" href="../index.php">Fletnix</a>
                 </div>
 
                 <div class="card card-white" style="margin-top: 50px">

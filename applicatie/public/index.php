@@ -43,7 +43,7 @@
             <div class="jumbotron-overlay"></div>
         </div>
     </header>
-    <main class="container" style="margin-top: 75px">
+    <main class="container" style="margin-top: 80px">
         <section class="text-center">
             <h1>Why should you subscribe to Fletnix</h1>
         </section>
@@ -57,30 +57,4 @@
     </main>
     <?php include 'wwwroot/components/footer.php' ?>
 </body>
-
 </html>
-
-
-
-<?php
-  function connect_db()
-  {
-    $host = "localhost,1433";
-    $username = "sa";
-    $password = "SuperSterkWacht2WoordVoorConnectie1";
-    $database = "Applicatie";
-
-    $dbh = new PDO("sqlsrv:Server=host.docker.internal;Database=Applicatie", "sa", "SuperSterkWacht2WoordVoorConnectie1");
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    return $dbh;
-  }
-
-  function execute_query($query)
-  {
-    $dbh = connect_db();
-
-    $result = $dbh->query($query);
-    return $result;
-  }
-  ?>
