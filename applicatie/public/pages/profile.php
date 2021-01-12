@@ -3,7 +3,7 @@ if (!isset($_SESSION)) { session_start(); }
   require_once('../functions/dbFunctions.php');
   require_once('../functions/registerfunctions.php');
 
-  $db = new Database('host.docker.internal',"fletnix_admin", "welkom", 'FLETNIX_DOCENT');
+  $db = new Database('host.docker.internal',"sa", "SuperSterkWacht2WoordVoorConnectie1", 'Applicatie');
   $conn = $db->connect();
 
   $Users = new UserProfile($conn);

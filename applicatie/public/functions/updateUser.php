@@ -13,14 +13,8 @@ if (!isset($_SESSION)) { session_start(); }
       return $dbh;
     }
   
-     // update function
-
     $dbh = connect_db();
-
-    //$command =" UPDATE Customer SET [customer_mail_address]='{$Email}', [password]='{$Password}' WHERE [user_name]='{$UserId}'";    
-
-    $command = $dbh->prepare("UPDATE Customer SET [customer_mail_address]='?', [password]='?' WHERE [user_name]='?'");
-    //echo "<script>alert('{$command}')</script>";
+    $command = $dbh->prepare("UPDATE Customer SET [customer_mail_address]=?, [password]=? WHERE [user_name]=?");
     execute_query($command);  
     
     function execute_query($query)
@@ -29,11 +23,9 @@ if (!isset($_SESSION)) { session_start(); }
       $Email = $_POST['mailing'];
       $Password = $_POST['passcode'];
       $UserId = $_SESSION['userId'];
-
       $query->execute(array($Email,$Password,$UserId));
-      
       echo "<script>alert('Changes has been saved')</script>";
-      header("refresh:2; url=../pages/profile.php");
+     header("refresh:1; url=../pages/profile.php");
     }
     
 

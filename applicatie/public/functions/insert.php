@@ -34,9 +34,6 @@
       $query->execute(array($Email, $Firstname, $Lastname, $PaymentMethod, $PaymentCard, $Contract, $Contract_start, $Username, $Password, $Country));
       
       echo "<script>alert('Changes has been saved')</script>";
-      header("refresh:2; url=../pages/subscription.php");
+      header("refresh:1; url=../pages/subscription.php");
     }
-  
-    
-    // }
 ?>
