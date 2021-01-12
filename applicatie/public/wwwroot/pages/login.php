@@ -1,6 +1,9 @@
 <?php
-if (!isset($_SESSION)) { session_start(); }
-  $error = isset($_GET['error'])
+    if (!isset($_SESSION)) { 
+        session_start(); 
+    } 
+
+    $error = isset($_GET['error'])
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +19,7 @@ if (!isset($_SESSION)) { session_start(); }
     <link rel="stylesheet" href="../css/flex.css" />
     <link rel="stylesheet" href="../css/modal.css" />
 
-    <link rel="icon" type="image/png" href="../favicon.png" />
+    <link rel="icon" type="image/png" href="../../favicon.png" />
 
     <title>🎥 Fletnix</title>
 </head>
@@ -29,7 +32,7 @@ if (!isset($_SESSION)) { session_start(); }
                 </div>
 
                 <div class="card card-white" style="margin-top: 50px">
-                    <form method="post" action="../functions/authLogin.php">
+                    <form method="post" action="../../functions/authLogin.php">
                         <label>
                             Email:
                             <input type="email" name="mail_address" required />

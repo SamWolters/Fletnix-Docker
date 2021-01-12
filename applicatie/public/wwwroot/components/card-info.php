@@ -1,7 +1,7 @@
 <div class="col-2">
     <div class="card card-hover">
         <div class="">
-            <img src="./assets/movies.jpg" class="image" alt="movie_poster" />
+            <img src="wwwroot/assets/movies.jpg" class="image" alt="movie_poster" />
         </div>
         <article>
             <h2>Available on all devices</h2>

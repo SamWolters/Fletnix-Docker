@@ -1,5 +1,4 @@
 <?php
-
     class Database {
         private $host;
         private $user;
@@ -19,9 +18,5 @@
 
             return $db;
         }
-
-
     }
-
-
 ?>

@@ -1,14 +1,14 @@
-<?php if (!isset($_SESSION)) { session_start(); }?>
+<?php 
+    if (!isset($_SESSION)) { 
+        session_start(); 
+    } 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="../js/button.js"></script>
 
     <link rel="stylesheet" href="../css/about.css" />
     <link rel="stylesheet" href="../css/main.css" />
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="../css/flex.css" />
     <link rel="stylesheet" href="../css/modal.css" />
 
-    <link rel="icon" type="image/png" href="../favicon.png" />
+    <link rel="icon" type="image/png" href="../../favicon.png" />
 
     <title>🎥 Fletnix</title>
 </head>
@@ -27,7 +27,7 @@
 <body>
     <header class="jumbotron">
         <nav>
-            <?php include '../include/navigation.php'?>
+            <?php include '../components/navigation.php'?>
         </nav>
         <section class="jumbotron-inner text-center">
             <h1>Watch thousands of movies and series</h1>
@@ -124,8 +124,7 @@
             </div>
         </div>
     </main>
-    <?php include '../include/loginmodal.php' ?>
-    <?php include '../include/footer.php' ?>
+    <?php include '../components/footer.php' ?>
 </body>
 
 </html>

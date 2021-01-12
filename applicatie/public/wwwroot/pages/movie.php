@@ -1,16 +1,20 @@
 <?php
-    require_once('../functions/dbFunctions.php');
-    require_once('../functions/movieFunctions.php');
+    if (!isset($_SESSION)) { 
+        session_start(); 
+    } 
+    
+    require_once('../../data/Database.php');
+    require_once('../../data/Movie.php');
 
     $db = new Database('host.docker.internal',"fletnix_admin", "welkom", 'FLETNIX_DOCENT');
     $conn = $db->connect();
 
     $movies = new Movies($conn);
+
     $movie = $movies->getById($_GET['id']);
     $cast = $movies->getCast($_GET['id']);
     $directors = $movies->getDirectors($_GET['id']);
 
-    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -29,14 +33,14 @@
     <link rel="stylesheet" href="../css/flex.css" />
     <link rel="stylesheet" href="../css/modal.css" />
 
-    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="icon" type="image/png" href="../../favicon.png" />
 
     <title>🎥 Fletnix</title>
 </head>
 <body>
     <header>
         <nav>
-            <?php include '../include/navigation.php'?>
+            <?php include '../components/navigation.php'?>
         </nav>
     </header>
     <main>
@@ -44,16 +48,20 @@
             <div class="flex flex-center">
                 <div class="col-3 col-md-4 col-sm-6">
                     <div style="margin-top: 50px">
-                    <div class="flex">
-                        <div class="col-5 col-md-5 col-sm-4">
-                            <h1><?=$movie['title'] ?></h1>
-                        </div>
-                        <div class="col-1 col-md-1 col-sm-1">
-                            <div class="text-right">
-                                    <a class="btn btn-red">Play</a>
+                        <div class="flex">
+                            <div class="col-5 col-md-5 col-sm-4">
+                                <h1><?=$movie['title'] ?></h1>
+                            </div>
+                            <div class="col-1 col-md-1 col-sm-1">
+                                <div class="text-right">
+                                    <?php if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"]) { ?>
+                                        <a class="btn btn-red">Play</a>
+                                    <?php } else { ?>
+                                        <a class="btn btn-red" href="../../wwwroot/pages/login.php">Login</a>
+                                    <?php } ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
                         <img src="../assets/horizontal-banner.jpg" alt="" class="image-banner">
                         <p><?=$movie['description'] ?></p>
                         <p>Duration: <?=$movie['duration'] ?> minuten</p>
@@ -78,6 +86,7 @@
                 </div>
             </div>
         </div>
+        <?php include '../components/footer.php' ?>
     </main>
 </body>
 </html>

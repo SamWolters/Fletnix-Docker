@@ -1,8 +1,11 @@
 <?php 
-    require_once('dbFunctions.php');
+    require_once('../data/Database.php');
+    require_once('../data/User.php');
 
-    $db = new Database('host.docker.internal',"sa", "SuperSterkWacht2WoordVoorConnectie1",'Applicatie');
+    $db = new Database('host.docker.internal',"fletnix_admin", "welkom", 'FLETNIX_DOCENT');
     $conn = $db->connect();
+
+    $users = new User($conn);
 
     $username = "";
     $password = "";
@@ -16,35 +19,27 @@
             $password = $_POST["password"];
         }
 
-        $command = $conn->prepare('SELECT user_name, contract_type, subscription_end, password FROM Customer Where customer_mail_address = ?');   
-        
-        // $command->bindValue('')
-        $command->execute(array($username));
-        $result = $command->fetchAll();
+        $user = $users->searchForUser($username);
     
-        if ($result[0] != null) {
-            if ($password == isset($result[0]['password'])) {
+        if ($user != null) {
+            if ($password == $user['password']) {
                 session_start();
     
                 $_SESSION["loggedIn"] = true;
-                $_SESSION["userId"] = $result[0]['user_name'];
-                $_SESSION["contractType"] = $result[0]['contract_type'];
+                $_SESSION["userId"] = $user['user_name'];
+                $_SESSION["contractType"] = $user['contract_type'];
     
-                if ($result[0]['subscription_end'] != null) {
+                if ($user['subscription_end'] != null) {
                     $_SESSION["validSubscription"] = true;
                 } else {
                     $_SESSION["validSubscription"] = false;
                 }
-                header("location: ../pages/overview.php");
+                header("location: ../wwwroot/pages/overview.php");
             } else {
-                header("location: ../pages/login.php?error=password");
+                header("location: ../wwwroot/pages/login.php?error=password");
             }
-    
         } else {
-            header("location: ../pages/login.php?error=email");
+            header("location: ../wwwroot/pages/login.php?error=email");
         }
-        
-
-   
     }
 ?>

@@ -1,11 +1,11 @@
 <?php
-require_once '../lib/modaloptions.php';
+require_once '../../functions/Subscription.php';
 for($x = 0; $x < 3;$x++){
     $subscription = modaloptions($x);
-    CreateCards($subscription);
+    createCards($subscription);
 }
 
-function CreateCards($subscription){
+function createCards($subscription){
 ?>
     <div class="col-2 col-md-3 col-sm-4">
     <div id="btn<?=$subscription['title']?>" class="card card-white no-padding">

@@ -1,4 +1,8 @@
-<?php if (!isset($_SESSION)) { session_start(); }?>
+<?php 
+    if (!isset($_SESSION)) { 
+        session_start(); 
+    } 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,19 +10,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="js/button.js"></script>
-
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/buttons.css" />
-    <link rel="stylesheet" href="css/jumbotron.css" />
-    <link rel="stylesheet" href="css/navigation.css" />
-    <link rel="stylesheet" href="css/grid.css" />
-    <link rel="stylesheet" href="css/cards.css" />
-    <link rel="stylesheet" href="css/form.css" />
-    <link rel="stylesheet" href="css/flex.css" />
-    <link rel="stylesheet" href="css/modal.css" />
+    <link rel="stylesheet" href="wwwroot/css/main.css" />
+    <link rel="stylesheet" href="wwwroot/css/buttons.css" />
+    <link rel="stylesheet" href="wwwroot/css/jumbotron.css" />
+    <link rel="stylesheet" href="wwwroot/css/navigation.css" />
+    <link rel="stylesheet" href="wwwroot/css/grid.css" />
+    <link rel="stylesheet" href="wwwroot/css/cards.css" />
+    <link rel="stylesheet" href="wwwroot/css/form.css" />
+    <link rel="stylesheet" href="wwwroot/css/flex.css" />
+    <link rel="stylesheet" href="wwwroot/css/modal.css" />
 
     <link rel="icon" type="image/png" href="./favicon.png" />
     <title>🎥 FLETNIX</title>
@@ -26,7 +26,9 @@
 
 <body>
     <header class="jumbotron">
-        <nav><?php include 'include/navigation.php'?></nav>
+        <nav>
+            <?php include 'wwwroot/components/navigation.php'?>
+        </nav>
         <section class="jumbotron-inner text-center">
             <h1>Sign up for <span class="logo">Fletnix</span></h1>
             <p>Enjoy 3 months of free movies and series</p>
@@ -47,14 +49,13 @@
         </section>
         <div class="flex flex-center">
             <?php 
-            for($x =0; $x < 3; $x++){
-            include 'include/indexcard.php';
-            }
+                for($x =0; $x < 3; $x++){
+                    include 'wwwroot/components/card-info.php';
+                }
             ?>
         </div>
     </main>
-    <?php include 'include/loginmodal.php' ?>
-    <?php include 'include/footer.php' ?>
+    <?php include 'wwwroot/components/footer.php' ?>
 </body>
 
 </html>
