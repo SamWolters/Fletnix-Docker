@@ -16,10 +16,10 @@
             $password = $_POST["password"];
         }
 
-        $command = $conn->prepare('SELECT user_name, contract_type, subscription_end, password FROM Customer Where customer_mail_address = ?');   
+        $command = $conn->prepare('SELECT user_name, contract_type, subscription_end, password FROM Customer Where customer_mail_address = ? AND password = ?');   
         
         // $command->bindValue('')
-        $command->execute(array($username));
+        $command->execute(array($username, $password));
         $result = $command->fetchAll();
     
         if ($result[0] != null) {
