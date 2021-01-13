@@ -4,7 +4,7 @@
     require_once('../../data/Payment.php');
     require_once('../../functions/Subscription.php');
 
-    $db = new Database('host.docker.internal',"fletnix_admin", "welkom", 'FLETNIX_DOCENT');
+    $db = new Database('host.docker.internal',"sa", "SuperSterkWacht2WoordVoorConnectie1", 'Applicatie');
     $conn = $db->connect();
 
     $countries = new Country($conn);

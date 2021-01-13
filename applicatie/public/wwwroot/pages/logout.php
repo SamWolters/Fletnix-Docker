@@ -2,7 +2,7 @@
     require_once('../../data/Database.php');
     require_once('../../data/User.php');
 
-    $db = new Database('host.docker.internal',"fletnix_admin", "welkom", 'FLETNIX_DOCENT');
+    $db = new Database('host.docker.internal',"sa", "SuperSterkWacht2WoordVoorConnectie1", 'Applicatie');
     $conn = $db->connect();
 
     $users = new User($conn);

@@ -4,7 +4,7 @@
 
     session_start(); 
 
-    $db = new Database('host.docker.internal',"fletnix_admin", "welkom", 'FLETNIX_DOCENT');
+    $db = new Database('host.docker.internal',"sa", "SuperSterkWacht2WoordVoorConnectie1", 'Applicatie');
     $conn = $db->connect();
 
     $users = new User($conn);
@@ -13,7 +13,7 @@
         if (isset($_POST) && !empty($_POST)) {
             $users->update($_POST['mailing'], $_POST['passcode'], $_SESSION['userId']);
 
-            header('location: profile.php');
+            header("refresh:1; url=../pages/profile.php");
         }
     }
 ?>
