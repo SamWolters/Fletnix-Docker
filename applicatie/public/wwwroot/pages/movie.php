@@ -55,7 +55,7 @@
                             <div class="col-1 col-md-1 col-sm-1">
                                 <div class="text-right">
                                     <?php if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"]) { ?>
-                                        <a class="btn btn-red">Play</a>
+                                        <a class="btn btn-red" href="../../wwwroot/pages/player.html">Play</a>
                                     <?php } else { ?>
                                         <a class="btn btn-red" href="../../wwwroot/pages/login.php">Login</a>
                                     <?php } ?>

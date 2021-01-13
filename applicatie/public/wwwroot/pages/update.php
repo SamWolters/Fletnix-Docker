@@ -11,7 +11,7 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST) && !empty($_POST)) {
-            $users->update($_POST['mailing'], $_POST['passcode'], $_SESSION['userId']);
+            $users->update($_SESSION['userId'], $_POST['mailing'], $_POST['passcode']);
 
             header('location: profile.php');
         }
