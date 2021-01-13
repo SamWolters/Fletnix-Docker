@@ -15,7 +15,7 @@
         }
 
         function getById($id) {
-            $command = $this->dbContext->prepare('SELECT user_name, password, customer_mail_address, subscription_end, payment_card_number, contract_type FROM Customer Where user_name = ?');
+            $command = $this->dbContext->prepare('SELECT user_name, password, customer_mail_address, subscription_end, RIGHT(payment_card_number,4) as payment_card_number, contract_type FROM Customer Where user_name = ?');
             $command->execute(array($id));
 
             return $command->fetch();
@@ -28,9 +28,8 @@
             $command->execute(array($mail, $firstname, $lastname, $payment_method, $payment_card, $contract_type, $subscription_start, $user_name, $password, $country, null, null));
         }
 
-        function update($user_name, $mail, $password) {
-            $command = $this->dbContext->prepare("UPDATE Customer SET customer_mail_address = ?, password = ? WHERE user_name = ?");
-
+        function update($mail, $password, $user_name) {
+            $command = $this->dbContext->prepare("UPDATE Customer SET [customer_mail_address] = ?, [password] = ? WHERE [user_name] = ?");
             $command->execute(array($mail, $password, $user_name));
         }
 
