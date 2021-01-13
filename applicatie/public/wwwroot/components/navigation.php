@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php
+    if (!isset($_SESSION)) { 
+        session_start(); 
+    } 
+?>
 <ul>
     <li>
         <a class="navigation-logo" href="../../index.php">Fletnix</a>
